@@ -9,6 +9,7 @@
     "amazon-product-api": "^0.3.8",
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
+    "credentials": "^1.0.1",
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "^1.11.0",
@@ -16,6 +17,7 @@
     "mongodb": "^2.1.7",
     "monk": "^1.0.1",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "xml2js": "^0.4.16"
   }
 }
