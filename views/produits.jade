@@ -1,6 +1,77 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title} :)
-  //nodemon bin/www
+  .row
+    .col-md-12
+      h1 Catégorie de Produits : Téléphones
+    hr(class="featurette-divider")
+  .row
+    .col-md-12
+      .col-sm-6.col-md-4
+        .thumbnail
+          h4.text-center
+            span.label.label-info Samsung
+          img.img-responsive(src='http://placehold.it/650x450&text=Galaxy S5')
+          .caption
+            .row
+              .col-md-6.col-xs-6
+                h3 Galaxy S5
+              .col-md-6.col-xs-6.price
+                h3
+                  label $649.99
+            p 32GB, 2GB Ram, 1080HD, 5.1 inches, Android
+            .row
+              .col-md-6
+                a.btn.btn-primary.btn-product
+                  span.glyphicon.glyphicon-thumbs-up
+                  |  Like
+              .col-md-6
+                a.btn.btn-success.btn-product(href='#')
+                  span.glyphicon.glyphicon-shopping-cart
+                  |  Buy
+            p
+      .col-sm-6.col-md-4
+        .thumbnail
+          h4.text-center
+            span.label.label-info Apple
+          img.img-responsive(src='http://placehold.it/650x450&text=iPhone 6')
+          .caption
+            .row
+              .col-md-6.col-xs-6
+                h3 iPhone 6
+              .col-md-6.col-xs-6.price
+                h3
+                  label $749.99
+            p 32GB, 64Bit, 1080HD, 4.7 inches, iOS 8
+            .row
+              .col-md-6
+                a.btn.btn-primary.btn-product
+                  span.glyphicon.glyphicon-thumbs-up
+                  |  Like
+              .col-md-6
+                a.btn.btn-success.btn-product(href='#')
+                  span.glyphicon.glyphicon-shopping-cart
+                  |  Buy
+            p
+      .col-sm-6.col-md-4
+        .thumbnail
+          h4.text-center
+            span.label.label-info Nokia
+          img.img-responsive(src='http://placehold.it/650x450&text=Lumia 1520')
+          .caption
+            .row
+              .col-md-6.col-xs-6
+                h3 Lumia 1520
+              .col-md-6.col-xs-6.price
+                h3
+                  label $749.00
+            p 32GB, 4GB Ram, 1080HD, 6.3 inches, WP 8
+            .row
+              .col-md-6
+                a.btn.btn-primary.btn-product
+                  span.glyphicon.glyphicon-thumbs-up
+                  |  Like
+              .col-md-6
+                a.btn.btn-success.btn-product(href='#')
+                  span.glyphicon.glyphicon-shopping-cart
+                  |  Buy

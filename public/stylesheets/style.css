@@ -3,9 +3,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
+a { color: #00B7FF;}
+.img-center { margin: 0 auto;}
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -13,6 +12,10 @@ a {
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+}
+
+footer{
+  margin-top: 25px
 }
 
 
