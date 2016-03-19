@@ -1,8 +1,9 @@
 var express = require('express');
+var credentials = require('../amzWs/credentials_template');
 var router = express.Router();
 
 var aws = require("../amzWs/lib/aws");
-prodAdv = aws.createProdAdvClient("AKIAI5DYIU54FS6KUT7A", "2+bzY+sLbT3HDgBScxuyVjRECArq9AlXuTvMe9DU","Alex");
+prodAdv = aws.createProdAdvClient(credentials.accessKeyId, credentials.secretAccessKey, credentials.nameAccess);
 
 router.get('/', function (req, res) {
     prodAdv.call("ItemSearch", {SearchIndex: req.query.searchIndex, Keywords: req.query.keywords}, function(err, result) {
