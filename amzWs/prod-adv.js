@@ -7,3 +7,7 @@ prodAdv = aws.createProdAdvClient(credentials.accessKeyId, credentials.secretAcc
 prodAdv.call("ItemSearch", {SearchIndex: "Books", Keywords: "Javascript"}, function(err, result) {
   console.log(JSON.stringify(result));
 })
+
+prodAdv.call("ItemLookup", {IdType: "UPC", ItemId:"635753490879"}, function(err, result) {
+  console.log(JSON.stringify(result));
+})
