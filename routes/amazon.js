@@ -15,15 +15,18 @@ router.get('/Search', function (req, res) {
 
 //example: http://localhost:3000/amazon/Lookup?idType=UPC&itemId=635753490879&reponseGroup=Large&searchIndex=All
 //http://localhost:3000/amazon/Lookup?idType=ASIN&itemId=1617292036&reponseGroup=Large
+//all id: 'ASIN', 'SKU', 'UPC', 'EAN','ISBN'
 router.get('/Lookup', function (req, res) {
 	prodAdv.call("ItemLookup", {IdType: req.query.idType, ItemId:req.query.itemId, ResponseGroup:req.query.reponseGroup, SearchIndex:req.query.searchIndex}, function(err, result) {
 		res.json(result);
 	})
 });
 
+//example: http://localhost:3000/amazon/List?searchIndex=Books&keywords=nodejs
 router.get('/List', function (req, res){
 	var q = [];
 	var details = [];
+	var titles = [];
 
 	var search = new Promise ( function (resolve, reject){
 		prodAdv.call("ItemSearch", {SearchIndex: req.query.searchIndex, Keywords: req.query.keywords}, function(err, result) {
@@ -33,24 +36,23 @@ router.get('/List', function (req, res){
 
 	search.then(function(data){
 		data.ItemSearchResponse.Items[0].Item.forEach(function(v,i,a){
-			
 			q[i] = new Promise( function (resolve, reject){
 				prodAdv.call("ItemLookup", {IdType: 'ASIN', ItemId: v.ASIN, ResponseGroup:'Large'}, function(err, result) {
-					details.push(result); 
+					details.push(result);
+					titles.push(v.ItemAttributes[0].Title);
 					resolve();
 				})
 			});
 		});
 
-
 		Promise.all(q).then(function(){
+			//console.log(details[0].ItemLookupResponse.Items[0].Item[0]);
 			res.render('produits', {
-			 details : details 
+			 details : details ,
+			 titles : titles
 			})
 		});
-
 	});
-
 });
 
 	module.exports = router; 
