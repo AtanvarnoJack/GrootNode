@@ -6,19 +6,16 @@
         h3#myModalLabel
           | Contactez-nous !
       .modal-body
-        form.form-horizontal.col-sm-12
+        form.form-horizontal.col-sm-12(role='form', method='post', action='/mail')
           .form-group
-            label Nom
-            input.form-control.required(placeholder='Votre Nom', data-placement='top', data-trigger='manual', data-content='3 caracteres minimun', type='text')
-          .form-group
-            label Message
-            textarea.form-control(placeholder='Votre Message..', data-placement='top', data-trigger='manual')
+            label Sujet
+            input.form-control.required(name="subject", required, data-placement='top', data-trigger='manual', data-content='3 caracteres minimun', type='text')
           .form-group
             label E-Mail
-            input.form-control.email(placeholder='email@you.com (Pour que l\'on puisse vous contacter)', data-placement='top', data-trigger='manual', data-content='Must be a valid e-mail address (user@gmail.com)', type='text')
+            input.form-control.email(name="email", required, placeholder='(Pour que l\'on puisse vous contacter)', data-placement='top', data-trigger='manual', data-content='Must be a valid e-mail address (user@gmail.com)', type='text')
           .form-group
-            label Phone
-            input.form-control.phone(placeholder='Votre Téléphone', data-placement='top', data-trigger='manual', data-content=' (99.99.99.99.99)', type='text')
+            label Message
+            textarea.form-control(name="message", required, data-placement='top', data-trigger='manual')
           .form-group
             button.btn.btn-success.pull-right(type='submit') Envoyer!
             p#form-error.help-block.pull-left.text-danger.hide   Le formulaire n'est pas valide.

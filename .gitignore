@@ -3,3 +3,7 @@
 /amzWs/credentials_template.js
 amzWs/credentials_template.js
 /amzWs/credential.txt
+/routes/mailgun.js
+routes/mailgun.js
+/public/images
+public/images
