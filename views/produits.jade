@@ -33,25 +33,28 @@ block content
               .row
                 .col-md-12
               - count= 0
-              +element(titles[z], detail.ItemLookupResponse.Items[0])
+              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z])
             else
               - count= count + 1
-              +element(titles[z], detail.ItemLookupResponse.Items[0])
+              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z])
 
-mixin element (title, i)
+mixin element (title, i, price)
   .col-sm-6.col-md-4
     .thumbnail
-      h4.text-center
-        span.label.label-info= title
       img.img-responsive(src= i.Item[0].LargeImage[0].URL[0])
       .caption
         .row
           .col-md-6.col-xs-6
-            h3 Galaxy S5
+            h3 
+              label= title
           .col-md-6.col-xs-6.price
             h3
-              label $649.99
-        p 32GB, 2GB Ram, 1080HD, 5.1 inches, Android
+              label= price
+        - var tmpDescriptif = ""
+        each u,t in i.Item[0].ItemAttributes[0]
+          if typeof(u[0]) === 'string'
+            - tmpDescriptif = tmpDescriptif + ", " + t + ":" + u
+        p= tmpDescriptif
         .row
           .col-md-6
             a.btn.btn-primary.btn-product
@@ -61,4 +64,3 @@ mixin element (title, i)
             a.btn.btn-success.btn-product(href='#')
               span.glyphicon.glyphicon-shopping-cart
               |  Buy
-        p

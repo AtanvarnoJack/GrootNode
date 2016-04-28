@@ -27,6 +27,7 @@ router.get('/List', function (req, res){
 	var q = [];
 	var details = [];
 	var titles = [];
+	var prices = [];
 
 	var search = new Promise ( function (resolve, reject){
 		prodAdv.call("ItemSearch", {SearchIndex: req.query.searchIndex, Keywords: req.query.keywords}, function(err, result) {
@@ -39,6 +40,14 @@ router.get('/List', function (req, res){
 			q[i] = new Promise( function (resolve, reject){
 				prodAdv.call("ItemLookup", {IdType: 'ASIN', ItemId: v.ASIN, ResponseGroup:'Large'}, function(err, result) {
 					details.push(result);
+					try {
+						console.log(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
+						prices.push(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
+					} catch (ex) {
+						console.log("$");
+						prices.push("$");
+					}
+
 					titles.push(v.ItemAttributes[0].Title);
 					resolve();
 				})
@@ -46,10 +55,11 @@ router.get('/List', function (req, res){
 		});
 
 		Promise.all(q).then(function(){
-			//console.log(details[0].ItemLookupResponse.Items[0].Item[0]);
+			//console.log(details[1].ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestNewPrice[0].FormattedPrice[0]);
 			res.render('produits', {
 			 details : details ,
-			 titles : titles
+			 titles : titles ,
+			 prices : prices
 			})
 		});
 	});
