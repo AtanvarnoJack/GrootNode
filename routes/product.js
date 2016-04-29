@@ -48,12 +48,19 @@ router.get('/', function (req, res, next){
 				 prices : prices ,
 				 title: 'Produits',
 				 active:'/produits',
-				 amazonIndex: amazonIndex
+				 amazonIndex: amazonIndex,
+				 searchCat : req.query.searchIndex,
+			 	 searchKeyWord : req.query.keywords
 				})
 			});
 		});
 	}else{
-		res.render('produits', { title: 'Produits', active:'/produits', amazonIndex: amazonIndex });
+		res.render('produits', { 
+			title: 'Produits', 
+			active:'/produits', 
+			amazonIndex: amazonIndex,
+			searchCat : "All",
+		 });
 	}
 });
 
