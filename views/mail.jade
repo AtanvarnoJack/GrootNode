@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  if alert == 'success'
+    .alert.alert-success(role='alert') Message envoyé
+  else 
+    .alert.alert-error(role='alert') Message non envoyé
+    
+  
