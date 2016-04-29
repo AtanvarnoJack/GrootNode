@@ -30,8 +30,8 @@ router.get('/', function (req, res, next){
 							console.log(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
 							prices.push(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
 						} catch (ex) {
-							console.log("$");
-							prices.push("$");
+							console.log("none");
+							prices.push("none");
 						}
 
 						titles.push(v.ItemAttributes[0].Title);
@@ -48,7 +48,7 @@ router.get('/', function (req, res, next){
 				 prices : prices ,
 				 title: 'Produits',
 				 active:'/produits',
-				 amazonIndex: amazonIndex,
+				 amazonIndex: amazonIndex.sort(),
 				 searchCat : req.query.searchIndex,
 			 	 searchKeyWord : req.query.keywords
 				})
@@ -58,7 +58,7 @@ router.get('/', function (req, res, next){
 		res.render('produits', { 
 			title: 'Produits', 
 			active:'/produits', 
-			amazonIndex: amazonIndex,
+			amazonIndex: amazonIndex.sort(),
 			searchCat : "All",
 		 });
 	}

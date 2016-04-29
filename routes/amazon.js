@@ -41,7 +41,7 @@ router.get('/List', function (req, res){
 				prodAdv.call("ItemLookup", {IdType: 'ASIN', ItemId: v.ASIN, ResponseGroup:'Large'}, function(err, result) {
 					details.push(result);
 					try {
-						console.log(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
+						console.log(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0]);
 						prices.push(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
 					} catch (ex) {
 						console.log("$");
