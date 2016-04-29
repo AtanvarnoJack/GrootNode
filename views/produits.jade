@@ -52,8 +52,9 @@ mixin element (title, i, price)
               label= price
         - var tmpDescriptif = ""
         each u,t in i.Item[0].ItemAttributes[0]
-          if typeof(u) === 'string'
-            - tmpDescriptif = tmpDescriptif + ", " + t + ":" + u
+          if typeof(u[0]) === 'string'
+              - tmpDescriptif = tmpDescriptif + ", " + t + ":" + u
+        - tmpDescriptif = tmpDescriptif.substr(1)
         p= tmpDescriptif
         .row
           .col-md-6
