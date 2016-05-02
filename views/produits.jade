@@ -6,14 +6,14 @@ block content
       .container
         .row
           .col-md-12
-            h1 Catégorie de Produits
+            h1 Product Category
           hr(class="featurette-divider")
         - var category = searchCat
         .row
           .col-xs-8.col-xs-offset-2
             .input-group
               .input-group-btn.search-panel
-                  button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown' name='searchDropdown')
+                  button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown' name='searchDropdown', style="float:left")
                     span#search_concept= category
                     span.caret
                   if amazonIndex
@@ -24,11 +24,11 @@ block content
                   form(action='/produits',method='get')
                     input#search_param(type='hidden', name='searchIndex', value=category)
                     if searchKeyWord == null
-                      input.form-control(type='text', name='keywords', placeholder='Search term...')
+                      input.form-control(type='text', name='keywords', placeholder='Search term...', style="float:left; width: 80%")
                     else
-                      input.form-control(type='text', name='keywords', value=searchKeyWord)
+                      input.form-control(type='text', name='keywords', value=searchKeyWord, style="float:left; width: 80%")
                     span.input-group-btn
-                      button.btn.btn-default(type='submit' id='searchBtn')
+                      button.btn.btn-default(type='submit' id='searchBtn', style="float:left")
                         span.glyphicon.glyphicon-search
                     script.
                       var categoryChange = function(value){
@@ -52,29 +52,35 @@ block content
               +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z])
 
 mixin element (title, i, price)
-  .col-sm-6.col-md-4
+  .col-sm-4.col-md-4.article
+    if price == 'none'
+      .disabled
+        p En Rupture de Stock !
     .thumbnail
-      img.img-responsive(src= i.Item[0].LargeImage[0].URL[0])
-      .caption
+      div.image-article
+        img(src= i.Item[0].LargeImage[0].URL[0])
+    .caption
         .row
-          .col-md-6.col-xs-6
+          .col-md-12.col-xs-12.title-article
             h3 
               label= title
-          .col-md-6.col-xs-6.price
-            h3
-              label= price
+          if price != 'none'
+            .col-md-12.col-xs-12.price
+              h3
+                label= price
         - var tmpDescriptif = ""
         each u,t in i.Item[0].ItemAttributes[0]
           if typeof(u[0]) === 'string'
               - tmpDescriptif = tmpDescriptif + ", " + t + ":" + u
         - tmpDescriptif = tmpDescriptif.substr(1)
-        p= tmpDescriptif
-        .row
-          .col-md-6
-            a.btn.btn-primary.btn-product
-              span.glyphicon.glyphicon-thumbs-up
-              |  Like
-          .col-md-6
-            a.btn.btn-success.btn-product(href='#')
-              span.glyphicon.glyphicon-shopping-cart
-              |  Buy
+        .descriptif
+          p= tmpDescriptif
+        if price != 'none'
+          .row
+            .col-md-12
+              a.btn.btn-primary.btn-product(style="margin-right: 5px")
+                span.glyphicon.glyphicon-thumbs-up
+                |  Like
+              a.btn.btn-success.btn-product(href='#')
+                span.glyphicon.glyphicon-shopping-cart
+                  |  Buy
