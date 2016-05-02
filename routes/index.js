@@ -27,11 +27,11 @@ router.post('/mail', function(req, res, next)
   mailgun.messages().send(data, function (err, body)
   {
       if (err) {
-          res.render('error', { error : err, alert: 'error'});
+          res.render('mail', { error : err, alert: 'error'});
           console.log("got an error: ", err);
       }
       else {
-          res.render('submitted', { alert: 'success' });
+          res.render('mail', { alert: 'success' });
           console.log(body);
       }
   });
