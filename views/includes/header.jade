@@ -27,3 +27,12 @@ html
             li(class="#{active=='/about' ? 'active' : ''}"): a(href='/about') About us
             li(class="#{active=='/produits' ? 'active' : ''}"): a(href='/produits') Products
             li(class="#{active=='/contact' ? 'active' : ''}"): a(href='#', data-toggle="modal",data-target="#myModal") Contact
+          ul.nav.navbar-nav.pull-right
+            li#menuLogin.dropdown
+              a#navLogin.dropdown-toggle(href='#', data-toggle='dropdown') Login
+              .dropdown-menu(style='padding: 20px; margin-left: -135px;')
+                form#formLogin.form
+                  input#username(name='username', type='text', placeholder='Username', style="padding: 5px;margin-bottom: 5px;")
+                  input#password(name='password', type='password', placeholder='Password', style="padding: 5px;margin-bottom: 5px;")
+                  br
+                  button#btnLogin.btn(type='button') Login
