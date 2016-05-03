@@ -1,26 +1,27 @@
 extends layout
 
 block content
-    .container.marketing
+    .container.marketing.about-us
       // Introduction Row
       .row
         .col-lg-12
           h1.page-header
-            | Qui sommes-nous ?
+            | About us  
             &nbsp;
-            small Ravi de vous rencontrer !
+            small It's Nice to Meet You!
       // Team Members Row
-      .row
+      .row.profil
         .col-lg-12
-          h2.page-header Notre Equipe
+          h2.page-header Team Members !
         .col-lg-4.col-sm-6
-          img.img-circle.img-responsive.img-center(src='http://placehold.it/200x200', alt='')
+          img.img-circle.img-responsive.img-center(src='/images/profil_lea.jpg', alt='')
           h3
             | Léa LAPLISE
             &nbsp;
             small Dev Web
           p
-            | What does this team member to? Keep it short! This is also a great spot for social links!
+            | Developer for 6 years, I specialized in web.
+            | What I like ? The constant evolution of the Internet world, constantly challenge himself and see a Results instantly!
         .col-lg-4.col-sm-6
           img.img-circle.img-responsive.img-center(src='http://placehold.it/200x200', alt='')
           h3
@@ -38,26 +39,29 @@ block content
           p
             | What does this team member to? Keep it short! This is also a great spot for social links!
       hr(class="featurette-divider")
-      .row
+      .activities
         .col-lg-12
-          .col-lg-6
-            p
-             |Nous sommes le leader de la distribution de biens culturels, de loisirs et de technologies pour le grand public en magasin et sur internet, aussi bien en France qu’à l’international : en Espagne, au Portugal, au Brésil, en Belgique, en Suisse, au Maroc, au Qatar et en Côte d’Ivoire
-            p
-             |Dans le cadre du plan « GrootNode 2015 », nous avons élargi notre gamme en développant des univers Maison et Design qui proposent une offre de produits de petit électroménager innovant et design. Nous avons également introduit de nouveaux espaces, Kids, dédiés aux enfants de 0-13 ans qui regroupent à la fois des jeux, jouets, livres, DVD, musique, produits techniques et jeux vidéo.
-            p
-             |En 2015, nous avons déployé sur l’ensemble de nos 86 magasins français des corners dédiés aux objets connectés, centrés sur le sport, le bien-être et les loisirs, ainsi que des espaces proposant une offre de téléphonie nue. A fin 2015, nous avions également déployé près de 70 espaces papeterie
-          .col-lg-6
-            img(src='/images/imggroupefnac_activites_05.jpg')
-      hr(class="featurette-divider")
-      .row
-        .col-lg-12
-          .col-lg-6
-            img(src='/images/imggroupefnac_activites_05.jpg')
-          .col-lg-6
-            p
-             |Nous sommes le leader de la distribution de biens culturels, de loisirs et de technologies pour le grand public en magasin et sur internet, aussi bien en France qu’à l’international : en Espagne, au Portugal, au Brésil, en Belgique, en Suisse, au Maroc, au Qatar et en Côte d’Ivoire
-            p
-             |Dans le cadre du plan « GrootNode 2015 », nous avons élargi notre gamme en développant des univers Maison et Design qui proposent une offre de produits de petit électroménager innovant et design. Nous avons également introduit de nouveaux espaces, Kids, dédiés aux enfants de 0-13 ans qui regroupent à la fois des jeux, jouets, livres, DVD, musique, produits techniques et jeux vidéo.
-            p
-             |En 2015, nous avons déployé sur l’ensemble de nos 86 magasins français des corners dédiés aux objets connectés, centrés sur le sport, le bien-être et les loisirs, ainsi que des espaces proposant une offre de téléphonie nue. A fin 2015, nous avions également déployé près de 70 espaces papeterie
+          h2.page-header Activities !
+        .row
+          .col-lg-12
+            .col-lg-6
+              p
+               |We are the leader in the distribution of cultural, leisure and technology for the general public in stores and on the internet, both in France and abroad: Spain, Portugal, Brazil, Belgium, Switzerland, Morocco, Qatar and Ivory Coast.
+              p
+               |As part of the plan "GrootNode 2015", we have expanded our developing world and Design House offering a range of innovative small appliances and design products. We have also introduced new areas, Kids, dedicated to children of 0-13 years which include both games, toys, books, DVDs, music, technical products and video games.
+              p
+               |In 2015, we deployed on all our 86 French stores corners dedicated to connected objects, centered on sports, wellness and recreation, as well as spaces offering an open telephony. At the end of 2015, we had also deployed nearly 70 stationery spaces
+            .col-lg-6
+              img(src='/images/imggroupefnac_activites_05.jpg')
+        hr(class="featurette-divider")
+        .row
+          .col-lg-12
+            .col-lg-6
+              img(src='/images/imggroupefnac_activites_05.jpg')
+            .col-lg-6
+              p
+               |We are the leader in the distribution of cultural, leisure and technology for the general public in stores and on the internet, both in France and abroad: Spain, Portugal, Brazil, Belgium, Switzerland, Morocco, Qatar and Ivory Coast.
+              p
+               |As part of the plan "GrootNode 2015", we have expanded our developing world and Design House offering a range of innovative small appliances and design products. We have also introduced new areas, Kids, dedicated to children of 0-13 years which include both games, toys, books, DVDs, music, technical products and video games.
+              p
+               |In 2015, we deployed on all our 86 French stores corners dedicated to connected objects, centered on sports, wellness and recreation, as well as spaces offering an open telephony. At the end of 2015, we had also deployed nearly 70 stationery spaces

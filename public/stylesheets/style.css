@@ -59,6 +59,13 @@ footer{
   font-weight: bold;
 }
 
+/**
+ * CUSTOMIZE ABOUT US
+ */
+.container.marketing.about-us .profil,
+h2.page-header {margin: 10px}
+.container.marketing.about-us .profil img{width: 200px; height: 200px; margin-top: 15px}
+.container.marketing.about-us .activities img{width: 100%!important}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -68,7 +75,6 @@ footer{
   position: relative;
   z-index: 15;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
