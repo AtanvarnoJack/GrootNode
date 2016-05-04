@@ -78,9 +78,9 @@ mixin element (title, i, price)
         if price != 'none'
           .row
             .col-md-12
-              a.btn.btn-primary.btn-product(style="margin-right: 5px")
+              a.btn.btn-primary.btn-product(style="margin-right: 5px", href=i.Item[0].ItemLinks[0].ItemLink[3].URL)
                 span.glyphicon.glyphicon-thumbs-up
                 |  Like
-              a.btn.btn-success.btn-product(href='#')
+              a.btn.btn-success.btn-product(href=i.Item[0].ItemLinks[0].ItemLink[0].URL)
                 span.glyphicon.glyphicon-shopping-cart
                   |  Buy
