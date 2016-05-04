@@ -31,8 +31,10 @@ router.get('/', function (req, res, next){
 						try {
 							console.log(result.ItemLookupResponse.Items[0].Item[0]);
 							prices.push(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
-							likes.push(result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[3].URL);
-							buys.push(result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[0].URL);
+							var like = result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[3].URL;
+							var buy = result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[0].URL;
+							likes.push(like[0].slice(0, 4) + "s" + like[0].slice(4));
+							buys.push(buy[0].slice(0, 4) + "s" + like[0].slice(4));
 						} catch (ex) {
 							console.log("none");
 							prices.push("none");
