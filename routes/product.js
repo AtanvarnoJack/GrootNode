@@ -13,6 +13,8 @@ router.get('/', function (req, res, next){
 	var details = [];
 	var titles = [];
 	var prices = [];
+	var likes = [];
+	var buys = [];
 
 	if (req.query.searchIndex !== undefined && req.query.keywords !== undefined){
 		var search = new Promise ( function (resolve, reject){
@@ -29,6 +31,8 @@ router.get('/', function (req, res, next){
 						try {
 							console.log(result.ItemLookupResponse.Items[0].Item[0]);
 							prices.push(result.ItemLookupResponse.Items[0].Item[0].OfferSummary[0].LowestUsedPrice[0].FormattedPrice[0]);
+							likes.push(result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[3].URL);
+							buys.push(result.ItemLookupResponse.Items[0].Item[0].ItemLinks[0].ItemLink[0].URL);
 						} catch (ex) {
 							console.log("none");
 							prices.push("none");
@@ -46,6 +50,8 @@ router.get('/', function (req, res, next){
 				 details : details ,
 				 titles : titles ,
 				 prices : prices ,
+				 likes: likes,
+				 buys: buys,
 				 title: 'Produits',
 				 active:'/produits',
 				 amazonIndex: amazonIndex.sort(),

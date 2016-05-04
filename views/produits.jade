@@ -46,12 +46,12 @@ block content
               .row
                 .col-md-12
               - count= 0
-              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z])
+              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z], z)
             else
               - count= count + 1
-              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z])
+              +element(titles[z], detail.ItemLookupResponse.Items[0], prices[z], z)
 
-mixin element (title, i, price)
+mixin element (title, i, price, z)
   .col-sm-4.col-md-4.article
     if price == 'none'
       .disabled
@@ -78,9 +78,9 @@ mixin element (title, i, price)
         if price != 'none'
           .row
             .col-md-12
-              a.btn.btn-primary.btn-product(style="margin-right: 5px", href=i.Item[0].ItemLinks[0].ItemLink[3].URL)
+              a.btn.btn-primary.btn-product(style="margin-right: 5px", href=likes[z], target='_blank')
                 span.glyphicon.glyphicon-thumbs-up
                 |  Like
-              a.btn.btn-success.btn-product(href=i.Item[0].ItemLinks[0].ItemLink[0].URL)
+              a.btn.btn-success.btn-product(href=buys[z], target='_blank')
                 span.glyphicon.glyphicon-shopping-cart
                   |  Buy
