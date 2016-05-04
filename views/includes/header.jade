@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel='stylesheet', href="/bootstrap/dist/css/bootstrap.min.css")
     link(rel="stylesheet", href="/bootstrap/dist/css/bootstrap-theme.min.css")
     script(src="/js/jquery-1.12.1.min.js")
@@ -22,7 +23,16 @@ html
           a.navbar-brand(href='/') GrootNodeAmazon
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li(class="#{active=='/' ? 'active' : ''}"): a(href='/') Accueil
-            li(class="#{active=='/about' ? 'active' : ''}"): a(href='/about') Qui sommes-nous ?
-            li(class="#{active=='/produits' ? 'active' : ''}"): a(href='/produits') Produits
+            li(class="#{active=='/' ? 'active' : ''}"): a(href='/') Home
+            li(class="#{active=='/about' ? 'active' : ''}"): a(href='/about') About us
+            li(class="#{active=='/produits' ? 'active' : ''}"): a(href='/produits') Products
             li(class="#{active=='/contact' ? 'active' : ''}"): a(href='#', data-toggle="modal",data-target="#myModal") Contact
+          ul.nav.navbar-nav.pull-right
+            li#menuLogin.dropdown
+              a#navLogin.dropdown-toggle(href='#', data-toggle='dropdown') Login
+              .dropdown-menu(style='padding: 20px; margin-left: -135px;')
+                form#formLogin.form
+                  input#username(name='username', type='text', placeholder='Username', style="padding: 5px;margin-bottom: 5px;")
+                  input#password(name='password', type='password', placeholder='Password', style="padding: 5px;margin-bottom: 5px;")
+                  br
+                  button#btnLogin.btn(type='button') Login

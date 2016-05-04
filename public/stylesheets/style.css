@@ -18,7 +18,54 @@ footer{
   margin-top: 25px
 }
 
+/**
+ *  CUSTOMIZE THE PAGE PRODUCT
+ */
+.article {
+  border: 1px solid #CCC3C3!important;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 900px;
+  position: relative;
+  margin-bottom: 10px
+}
+.article > .thumbnail {margin: 10px}
+.article > .thumbnail > .image-article {
+  height: 300px;
+  margin-bottom: 50px;
+  overflow: auto;
+}
+.article > .thumbnail > .image-article > img { width: 80%!important; margin: 10px auto!important; display: block}
+.article > .caption > .descriptif { height: 200px; overflow: auto;  margin-bottom: 25px;}
+.title-article{min-height: 150px}
+.price{text-align: right}
+.disabled{
+  height: 900px;
+  background-color: #B5B0B0;
+  position: absolute;
+  width: 100%;
+  opacity: 0.8;
+  margin: -20px;
+}
+.disabled p {
+  transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -webkit-transform: rotate(8deg);
+  -khtml-transform: rotate(8deg);
+  color: white;
+  text-align: center;
+  margin-top: 50%;
+  font-size: 30px;
+  font-weight: bold;
+}
 
+/**
+ * CUSTOMIZE ABOUT US
+ */
+.container.marketing.about-us .profil,
+h2.page-header {margin: 10px}
+.container.marketing.about-us .profil img{width: 200px; height: 200px; margin-top: 15px}
+.container.marketing.about-us .activities img{width: 100%!important}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -28,7 +75,6 @@ footer{
   position: relative;
   z-index: 15;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -67,7 +113,7 @@ footer{
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
-
+.container.marketing{margin-top: 20px;}
 /* Pad the edges of the mobile views a bit */
 .marketing {
   padding-left: 15px;
