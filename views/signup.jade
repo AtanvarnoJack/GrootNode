@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  div.container
+  .row.main
+    .panel-heading
+      .panel-title.text-center
+        h1.title Registration Form
+        hr
+    .main-login.main-center(style='margin-top: 30px; margin: 0 auto; max-width: 400px; padding: 40px 40px;')
+      form.form-horizontal(class='form-signin', action='/signup', method='POST')
+        .form-group
+          label.cols-sm-2.control-label(for='name') Your Name
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-user.fa(aria-hidden='true')
+              input#name.form-control(type='text', name='username',class='form-control', placeholder='Enter your Name',required, autofocus)
+        .form-group
+          label.cols-sm-2.control-label(for='email') Your Email
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-envelope.fa(aria-hidden='true')
+              input#email.form-control(type='email', name='email',class='form-control', placeholder='Enter your Email', required)
+        .form-group
+          label.cols-sm-2.control-label(for='firstName') First Name
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-users.fa(aria-hidden='true')
+              input#firstName.form-control(type='text', name='firstName',class='form-control', placeholder='Enter your First name', required)
+        .form-group
+          label.cols-sm-2.control-label(for='lastName') Last Name
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#lastName.form-control(type='text', name='lastName',class='form-control', placeholder='Enter your Last Name', required)
+        .form-group
+          label.cols-sm-2.control-label(for='password') Password
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#password.form-control(type='password', name='password', placeholder='Enter your Password', required)
+        .form-group
+          button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit') Register
+        .form-group
+          #message
+          if message
+            h1.text-center.error-message #{message}

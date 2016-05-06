@@ -31,8 +31,13 @@ html
             li#menuLogin.dropdown
               a#navLogin.dropdown-toggle(href='#', data-toggle='dropdown') Login
               .dropdown-menu(style='padding: 20px; margin-left: -135px;')
-                form#formLogin.form
+                form#formLogin.form(role='form-signin', method='post', action='/login')
                   input#username(name='username', type='text', placeholder='Username', style="padding: 5px;margin-bottom: 5px;")
                   input#password(name='password', type='password', placeholder='Password', style="padding: 5px;margin-bottom: 5px;")
                   br
-                  button#btnLogin.btn(type='button') Login
+                  button#btnLogin.btn(type='submit') Login
+                  .login-register(style="font-size: 11px; text-align: center;")
+                    a(href='/signup', style="padding top:") Create an account
+                  #message
+                  if message
+                    h1.text-center.error-message #{message}
